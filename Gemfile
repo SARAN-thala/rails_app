@@ -40,6 +40,7 @@ group :development, :test do
   gem 'capybara', '~> 2.13'
   gem 'selenium-webdriver'
   gem 'annotate', '~> 2.7', '>= 2.7.2'
+  gem 'validates_timeliness', '~> 4.0'
 end
 
 group :development do
