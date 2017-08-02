@@ -17,4 +17,8 @@ class Book < ApplicationRecord
   validates :name, presence: true,
                    length: { minimum: 3, maximum: 60 },
                    uniqueness: {case_sensitive: true}
+
+  def to_s
+    self.name
+  end
 end

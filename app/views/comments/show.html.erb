@@ -1,14 +1,13 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Body:</strong>
-  <%= @comment.body %>
+  <strong>Book:</strong>
+  <%= @comment.book %>
 </p>
 
 <p>
-  <strong>Book:</strong>
-  puts @comment
-  <%= @comment.book %>
+  <strong>Comment:</strong>
+  <%= @comment.body %>
 </p>
 
 <%= link_to 'Edit', edit_comment_path(@comment) %> |
