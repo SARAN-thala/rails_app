@@ -26,6 +26,9 @@ end
 
 # SELECT * FROM Physician WHERE name like 's%' INNER JOIN
 #   Appointment where appointment_date = '04/08/2017'
+
+# SELECT * FROM physicians INNER JOIN appointments ON appointments.physician_id = physicians.id
+# WHERE (name like 's%') AND (appointment_date = '2017-08-06')
 # -------------------------------------
 
 # Physician.where("name like 's%'").joins(:appointments).where("appointment_date = '2017-08-06'")

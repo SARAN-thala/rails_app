@@ -1,10 +1,20 @@
 class PatientsController < ApplicationController
+  include PatientsHelper
+  # before_action :set_page, only: [:index]
   before_action :set_patient, only: [:show, :edit, :update, :destroy]
 
   # GET /patients
   # GET /patients.json
+  # PATIENTS_PER_PAGE = 5
   def index
-    @patients = Patient.all
+    params[:per_page] ||= 5
+    # params[:page_number] ||= 1
+    @page = params[:page_number] || 1
+    @patients = Patient.paginate(params[:per_page], @page).all
+    # @patients = Patient.paginate(params[:per_page], @page).all
+    # @patients = Patient.paginate(params[:PATIENTS_PER_PAGE], @page).all
+    # @patients = Patient.order(created_at: :desc).limit(PATIENTS_PER_PAGE).offset(@page * PATIENTS_PER_PAGE)
+    # @patients = Patient.order(created_at: :asc).limit(5).offset(@page * 5)
   end
 
   # GET /patients/1
@@ -71,4 +81,8 @@ class PatientsController < ApplicationController
     def patient_params
       params.require(:patient).permit(:name)
     end
+
+    # def set_page
+    #   @page = params[:page_number] || 0
+    # end
 end

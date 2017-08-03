@@ -21,7 +21,13 @@
     <% end %>
   </tbody>
 </table>
+<div id = "nav">
+  <button><%= link_to 'Newest', patients_path %></button>
+  <button><%#= link_to 'Previous 5 Patient', patients_path(page: @page.to_i - 1) %></button>
+  <button><%= link_to "Next 5 Patient", patients_path(page: @page_number.to_i + 1) %></button>
+</div>
 
 <br>
+<h1><%= display_string %></h1>
 
 <%= link_to 'New Patient', new_patient_path %>

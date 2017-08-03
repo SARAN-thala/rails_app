@@ -20,7 +20,10 @@ class Patient < ApplicationRecord
                    length: { minimum: 3, maximum: 60 },
                    uniqueness: { case_sensitive: true }
 
+  scope :paginate, -> (per_page, page_number){ limit(per_page).offset(page_number)}
+
   def to_s
     name
   end
+
 end
